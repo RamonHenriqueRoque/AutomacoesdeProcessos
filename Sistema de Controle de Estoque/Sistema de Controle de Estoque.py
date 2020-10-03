@@ -102,7 +102,7 @@ def listagem_produtos(base_conectado):
 
 def atualizar_preco(base_conectado):
     while True:
-        produto_atualizar= input("Qual Produto voce queira atualizar?\nCaso queira sair escreva FIM\n").upper()
+        produto_atualizar= input("Digitar o novo preço\n").upper()
         cursor= base_conectado.cursor()
 
         cursor.execute("SELECT * FROM mini_Projeto")
