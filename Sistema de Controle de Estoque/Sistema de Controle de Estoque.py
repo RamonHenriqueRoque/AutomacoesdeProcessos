@@ -156,6 +156,7 @@ def selecionar_atributos(base_conectado):
         elif desejos == "3":
             listagem_produtos(base_conectado)
         elif desejos == "4":
+            base_conectado.close()
             break
 
 def main():
