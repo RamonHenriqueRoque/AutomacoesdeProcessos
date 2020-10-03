@@ -116,9 +116,7 @@ def saida_2(base_conectado):
         produto_saida_2= input("Qual ordem que entrou na fabrica 2?\nCaso queira sair escreva FIM\n").upper()
         
         cursor= base_conectado.cursor()
-
         cursor.execute("SELECT * FROM PROJETO_INDIVIDUAL WHERE estacao_2 = \"CONFIRMADO\";")
-
         resultado = cursor.fetchall()
 
         ordem_ID= []
@@ -151,11 +149,9 @@ def quais_foram_produzidos(base_conectado):
                                    "DATA_SAIDA_ESTAÇÃO_2"]
 
     cursor= base_conectado.cursor()
-
+    
     cursor.execute("SELECT * FROM PROJETO_INDIVIDUAL WHERE estacao_2 = \"FINALIZADO\";")
-
     resultado = cursor.fetchall()
-
     cursor.close()
     
     for i in range(len(resultado)):
@@ -172,9 +168,7 @@ def quem_esta_sendo_produzidos(base_conectado):
     cursor= base_conectado.cursor()
 
     cursor.execute("SELECT * FROM PROJETO_INDIVIDUAL WHERE estacao_1 = \"CONFIRMADO\" or  estacao_2 = \"CONFIRMADO\";")
-
     resultado = cursor.fetchall()
-
     cursor.close()
     
     for i in range(len(resultado)):
@@ -190,9 +184,7 @@ def quem_esta_na_fabrica1(base_conectado):
     cursor= base_conectado.cursor()
 
     cursor.execute("SELECT * FROM PROJETO_INDIVIDUAL WHERE estacao_1 = \"CONFIRMADO\";")
-
     resultado = cursor.fetchall()
-
     cursor.close()
     
     for i in range(len(resultado)):
@@ -208,9 +200,7 @@ def quem_esta_na_fabrica2(base_conectado):
     cursor= base_conectado.cursor()
 
     cursor.execute("SELECT * FROM PROJETO_INDIVIDUAL WHERE estacao_2 = \"CONFIRMADO\";")
-
     resultado = cursor.fetchall()
-
     cursor.close()
     
     for i in range(len(resultado)):
@@ -275,10 +265,10 @@ def selecionar_atributos(base_conectado):
     while True:
         while True:
             lista_desejos=["Voce deseja fazer o que:", "0(Incluir nova ordem)",
-                           "1(Saida de Ordem na fabrica 1)","2(Entrada de Ordem na fabrica 2)",
-                           "3(Saida de Ordem na fabrica 2)","4(Quais ordem foram Produzidos)",
-                           "5(Quem estão sendo produziddos)","6(Quem esta na fabrica 1)",
-                           "7(Quem esta na fabrica 2)", "8(Tempo Medio de produção)", "9(Caso queira SAIR)"]
+                           "1(Saida de Ordem na fabrica)","2(Entrada de Ordem na fabrica)",
+                           "3(Saida de Ordem na fabrica)","4(Quais ordem foram Produzidos)",
+                           "5(Quem estão sendo produziddos)","6(Quem esta na fabrica)",
+                           "7(Quem esta na fabrica)", "8(Tempo Medio de produção)", "9(Caso queira SAIR)"]
             for i in lista_desejos: print(i)
             
             desejos= input()
@@ -303,6 +293,7 @@ def selecionar_atributos(base_conectado):
         elif desejos == "8":
             tempo_medio(base_conectado)
         elif desejos =="9":
+            base_conectado.close()
             break
         
 def main():
@@ -311,20 +302,3 @@ def main():
     selecionar_atributos(base_conectado)
 
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
