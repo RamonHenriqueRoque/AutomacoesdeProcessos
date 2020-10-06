@@ -56,7 +56,7 @@ def saida_1(base_conectado):
 
         if produto_saiu_1 in ordem_ID:
             cursor= base_conectado.cursor()
-            sql= "UPDATE PROJETO_INDIVIDUAL SET Data_saida_estacao_1= \"{}\" WHERE Ordem = \"{}\";".format(strftime("%d-%m-%Y %H:%M:%S", localtime()), produto_saiu_1)
+            sql= "UPDATE PROJETO_INDIVIDUAL SET Estacao_1= \"{}\", Data_saida_estacao_1= \"{}\" WHERE Ordem = \"{}\";".format("FINALIZADO", strftime("%d-%m-%Y %H:%M:%S", localtime()), produto_saiu_1)
 
             cursor.execute(sql)
             cursor.close()
@@ -77,7 +77,7 @@ def entrada_2(base_conectado):
         
         cursor= base_conectado.cursor()
 
-        cursor.execute("SELECT * FROM PROJETO_INDIVIDUAL WHERE estacao_1 = \"CONFIRMADO\"")
+        cursor.execute("SELECT * FROM PROJETO_INDIVIDUAL WHERE estacao_1 = \"FINALIZADO\"")
 
         resultado = cursor.fetchall()
 
@@ -99,7 +99,7 @@ def entrada_2(base_conectado):
             sql= "UPDATE PROJETO_INDIVIDUAL SET Estacao_1= \"{}\" WHERE Ordem = \"{}\";".format("FINALIZADO", produto_entrada_2 )
 
             cursor.execute(sql)
-            cursor.close()
+            cursor.close() 
             base_conectado.commit()
 
             print("CONCLUIDO\n",)
@@ -173,7 +173,16 @@ def quem_esta_sendo_produzidos(base_conectado):
     
     for i in range(len(resultado)):
         estrutura_tabela.add_row([resultado[i][0],resultado[i][1],resultado[i][2],resultado[i][3],resultado[i][4],resultado[i][5],resultado[i][6]])
+
+    cursor= base_conectado.cursor()
+    cursor.execute("SELECT * FROM PROJETO_INDIVIDUAL WHERE estacao_1 = \"FINALIZADO\" and estacao_2 is null;")          # Caso o produto tenha terminado na fabrica 1 e nao entrou na fabrica 2
+    resultado = cursor.fetchall()
+    cursor.close()
+    
+    for i in range(len(resultado)):
+        estrutura_tabela.add_row([resultado[i][0],resultado[i][1],resultado[i][2],resultado[i][3],resultado[i][4],resultado[i][5],resultado[i][6]])
     return(print(estrutura_tabela), "\n","#######"*15)
+
 
 
 def quem_esta_na_fabrica1(base_conectado):
@@ -250,9 +259,7 @@ def tempo_medio(base_conectado):
     cursor= base_conectado.cursor()
 
     cursor.execute("SELECT Data_entrada_estacao_1, Data_saida_estacao_2 FROM PROJETO_INDIVIDUAL WHERE Estacao_2 = \"FINALIZADO\";")
-
     resultado = cursor.fetchall()
-
     cursor.close()
 
     diferenca=[]
@@ -265,10 +272,10 @@ def selecionar_atributos(base_conectado):
     while True:
         while True:
             lista_desejos=["Voce deseja fazer o que:", "0(Incluir nova ordem)",
-                           "1(Saida de Ordem na fabrica)","2(Entrada de Ordem na fabrica)",
-                           "3(Saida de Ordem na fabrica)","4(Quais ordem foram Produzidos)",
-                           "5(Quem estão sendo produziddos)","6(Quem esta na fabrica)",
-                           "7(Quem esta na fabrica)", "8(Tempo Medio de produção)", "9(Caso queira SAIR)"]
+                           "1(Saida de Ordem na fabrica 1)","2(Entrada de Ordem na fabrica 2)",
+                           "3(Saida de Ordem na fabrica 2)","4(Quais ordem foram Produzidos)",
+                           "5(Quem estão sendo produziddos)","6(Quem esta na fabrica 1)",
+                           "7(Quem esta na fabrica 2)", "8(Tempo Medio de produção)", "9(Caso queira SAIR)"]
             for i in lista_desejos: print(i)
             
             desejos= input()
@@ -302,3 +309,13 @@ def main():
     selecionar_atributos(base_conectado)
 
 main()
+
+
+
+
+
+
+
+
+
+
