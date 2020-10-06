@@ -96,9 +96,6 @@ def entrada_2(base_conectado):
 
             cursor.execute("UPDATE PROJETO_INDIVIDUAL SET Data_entrada_estacao_2= \"{}\" WHERE Ordem = \"{}\";".format(strftime("%d-%m-%Y %H:%M:%S", localtime()), produto_entrada_2))
             
-            sql= "UPDATE PROJETO_INDIVIDUAL SET Estacao_1= \"{}\" WHERE Ordem = \"{}\";".format("FINALIZADO", produto_entrada_2 )
-
-            cursor.execute(sql)
             cursor.close() 
             base_conectado.commit()
 
@@ -203,7 +200,7 @@ def quem_esta_na_fabrica1(base_conectado):
 
 def quem_esta_na_fabrica2(base_conectado):
     estrutura_tabela= PrettyTable()
-    estrutura_tabela.field_names= ["Ordem", "ESTAÇÃO_ESTRADA", "DATA_ENTRADA_ESTAÇÃO_1", "DATA_SAIDA_ESTAÇÃO_1", "ESTAÇÃO_ESTAÇÃO_2", "DATA_ENTRADA_ESTAÇÃO_2",
+    estrutura_tabela.field_names= ["Ordem", "ESTAÇÃO_1", "DATA_ENTRADA_ESTAÇÃO_1", "DATA_SAIDA_ESTAÇÃO_1", "ESTAÇÃO_2", "DATA_ENTRADA_ESTAÇÃO_2",
                                    "DATA_SAIDA_ESTAÇÃO_2"]
 
     cursor= base_conectado.cursor()
@@ -309,13 +306,3 @@ def main():
     selecionar_atributos(base_conectado)
 
 main()
-
-
-
-
-
-
-
-
-
-
