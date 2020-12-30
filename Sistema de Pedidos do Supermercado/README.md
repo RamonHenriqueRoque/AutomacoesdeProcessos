@@ -11,7 +11,7 @@ O programa foi dividido em 4 scripts: BD_SQL, GOOGLE_SHEETS, CAIXA e GERENTE. E 
 - Referente a função id_produtos, retorna um dicionário (key = código do produto, value = Nome do produto) existem no mercado;
 - Referente as funções mudando_coluna_colocado, mudando_coluna_processos, basicamente atualizam a base de dados.
 
-O script é basicamente comandos python utilizando SQL, para fazer atualizações e seleções das tabalas. E para auxiliar esse armazenamento e requerimento, foi usado o software XAMPP, habilitando o MySql e o Apache.
+O script é basicamente comandos python utilizando SQL, para fazer atualizações e seleções das tabelas. E para auxiliar esse armazenamento e requerimento, foi usado o software XAMPP, habilitando o MySql e o Apache.
 
 ## GOOGLE_SHEETS
 O código foi pego no "https://developers.google.com/sheets/api/quickstart/python" e adaptando no meu contexto. Precisa fazer as etapas 1 e 2, mostrado no link, para baixar as libs e a ativar automaticamente a API do Google Sheets, e com isso vai vir um arquivo JSON e colocar junto (na mesma pasta) com os scripts.
