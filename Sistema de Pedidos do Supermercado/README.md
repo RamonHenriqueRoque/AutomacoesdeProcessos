@@ -25,7 +25,7 @@ Quando rodar o código, basta seguir as instruções que o script vai mostrar.
 
 Existe dois tipos de barra de código. Primeiro é o ID do cliente, para saber quem é o cliente que vai ser atendidos e por ultimo o código dos produtos que o cliente pediram, caso coloque CÓDIGO DE PRODUTO que o cliente não pediu vai aparecer a mensagem ERROR.
 
-Esses dois código de barra, são facilmente achado no banco de dados.
+Tanto o código de barra cliente e código de barra produto, são facilmente achado no banco de dados.
 
 ## GERENTE
 Nesse script, basicamente, pega uma lista dos clientes atendidos (que foi requerido no script BD_SQL) e atualizar o Google Sheets com base nessa lista.
