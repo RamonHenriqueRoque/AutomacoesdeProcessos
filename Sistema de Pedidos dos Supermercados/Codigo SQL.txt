@@ -1,0 +1,29 @@
+CREATE DATABASE projetofinalai;
+
+CREATE TABLE ANDAMENTO (
+ID_CLIENTE int NOT NULL,
+PROCESSOS int DEFAULT 0,
+PRIMARY KEY (ID_CLIENTE));
+
+CREATE TABLE PEDIDOS_CLIENTES (
+ID_CLIENTE int NOT NULL,
+PRODUTO varchar(35) NOT NULL,
+COLOCADO int DEFAULT 0,
+FOREIGN KEY (ID_CLIENTE) REFERENCES ANDAMENTO (ID_CLIENTE));
+
+CREATE TABLE PRODUTOS (
+ID_PRODUTO int NOT NULL,
+PRODUTO varchar(35) NOT NULL,
+PRIMARY KEY (ID_PRODUTO));
+
+INSERT INTO `andamento` (`ID_CLIENTE`, `PROCESSOS`) VALUES ('0', '0'), ('1', '0'), ('2', '0'), ('3', '0'), ('4', '0'), ('5', '0');
+
+INSERT INTO `pedidos_clientes` (`ID_CLIENTE`, `PRODUTO`, `COLOCADO`) VALUES ('0', 'Leite', '0'), ('0', 'Cafe', '0'), ('0', 'Pao', '0'), ('0', 'Agua', '0'),
+('1', 'Queijo', '0'), ('1', 'Carne', '0'), ('1', 'Pao', '0'), ('1', 'Frango', '0'), ('1', 'Refrigerante', '0'), ('1', 'Cafe', '0'), 
+('2', 'Agua', '0'), ('2', 'Cerveja', '0'), ('2', 'Refrigerante', '0'), 
+('3', 'Agua', '0'), ('3', 'Pao', '0'), ('3', 'Cafe', '0'), ('3', 'Leite', '0'), ('3', 'Papel_Higienico', '0'), ('3', 'Carne', '0'), ('3', 'Frango', '0'), ('3', 'Cerveja', '0'), ('3', 'Refrigerante', '0'), ('3', 'Queijo', '0'), 
+('4', 'Carne', '0'), ('4', 'Frango', '0'), 
+('5', 'Cerveja', '0'), ('5', 'Carvao', '0');
+
+INSERT INTO `produtos` (`ID_PRODUTO`, `PRODUTO`) VALUES ('0', 'Leite'), ('1', 'Pao'), ('2', 'Cafe'), ('3', 'Agua'), ('4', 'Papel_Higienico'), ('5', 'Carne'), ('6', 'Frango'), ('7', 'Cerveja'), ('8', 'Refrigerante'), ('9', 'Queijo'), ('10', 'Carvao');
+
