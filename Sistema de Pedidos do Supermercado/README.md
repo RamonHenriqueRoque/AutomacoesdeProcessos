@@ -39,3 +39,4 @@ Seria interessante um app para alimentar o Banco de Dados, uma tela mais agradá
 - google-auth-httplib2
 - google-auth-oauthlib
 - prettytable
+- mysql
