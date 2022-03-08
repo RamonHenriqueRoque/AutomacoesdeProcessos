@@ -1,0 +1,1 @@
+{"Prev de dem Ind": {"Periodo 0": 0, "Periodo 1": 100, "Periodo 2": 120, "Periodo 3": 130, "Periodo 4": 140, "Periodo 5": 150}, "Pedidos em carteira": {"Periodo 0": 0, "Periodo 1": 120, "Periodo 2": 130, "Periodo 3": 100, "Periodo 4": 40,  "Periodo 5": 0}, "Estoque": {"Periodo 0": 140}}
