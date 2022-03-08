@@ -1,0 +1,1 @@
+{"Capacidade": {"Periodo 1": 350,"Periodo 2": 300,"Periodo 3": 350},"Demanda": {"Periodo 1": 200,"Periodo 2": 300,"Periodo 3": 400}, "Custo de produção Normal": {"Periodo 1": 10,"Periodo 2": 11,"Periodo 3": 12}, "Estoque": {"Inicial": 50, "Final": 75}, "Custo de estoque": {"Periodo 1": 2,"Periodo 2": 2,"Periodo 3": 2}}
