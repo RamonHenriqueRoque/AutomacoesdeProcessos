@@ -1,1 +1,0 @@
-{"Custo de Setup": 50, "Custo de Manutenção": "0.5", "Demanda": {"Periodo 1": 100, "Periodo 2": 100, "Periodo 3": 50, "Periodo 4": 50, "Periodo 5": 210}}
